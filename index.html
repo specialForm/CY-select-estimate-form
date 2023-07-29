@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html>
+<head><style>
+
+  h3 {
+    text-align: center;
+  }
+
+body {
+    margin: 5%;
+    font-family: sans-serif;
+  }
+
+  textarea {
+    font-family: sans-serif;
+    font-size: large;
+    border: none;
+    resize: none;
+    overflow: hidden;
+    /* Add any other styles specific to your text area here */
+  }
+
+  /* Styles for print media */
+  @media print {
+    textarea {
+      border: none;
+      resize: none;
+      overflow: hidden;
+      /* Add any other print-specific styles for the text area here */
+    }
+  }
+
+  @media print {
+    .hide-on-print {
+      display: none;
+    }}
+
+.page-content {
+  margin: 0%;
+  padding: 0;
+}
+
+body {
+  font-size: large;
+  font-family: sans-serif;
+}
+
+input {
+  border: none;
+}
+
+input[type="text"] {
+  font-size: 20px;
+  font-family: sans-serif;
+  width: 300px;
+  padding: 0;
+}
+input[type="tel"] {
+  font-size: large;
+  font-family: sans-serif;
+  width: 300px;
+  padding: 0;
+}
+input[type="email"] {
+  font-size: large;
+  font-family: sans-serif;
+  width: 300px;
+  padding: 0;
+}
+
+::placeholder {
+  font-size: large;
+  font-style: italic;
+  font-family: sans-serif;
+  color: #909090;
+}
+
+input::placeholder {
+  text-align: left;
+  font-size: large;
+  width: 200px;
+  height: 100px;
+  background-color: rgb(255, 255, 255);
+  padding: 0;
+}
+
+.placeholder-box {
+  width: 200px;
+  height: 50px;
+  background-color: rgb(160, 160, 160);
+  padding: 0;
+}
+
+.placeholder-box:active {
+  resize: both;
+  overflow: auto;
+}
+
+#myTable {
+  border-collapse: collapse; /* Remove spacing between table cells */
+  font-size: large;
+}
+
+#myTable th,
+#myTable td {
+  border: none; /* Remove borders from header and data cells */
+  padding: 0%; /* Add padding for better spacing */
+  text-align: left; /* Align text within cells (left, center, or right) */
+}
+</style></head>
+<body>
+  <title>Estimate</title>
+  <h3>ESTIMATE</h3>
+  <b><p style="color: rgba(7, 44, 103, 0.829); font-size: x-large;">C.Y. CABINET PAINTERS</p></b>
+  <script>
+    function showForm() {
+      var selectedForm = document.getElementById("formSelector").value;
+      var forms = document.getElementsByClassName("form");
+      for (var i = 0; i < forms.length; i++) {
+        if (forms[i].id === selectedForm) {
+          forms[i].style.display = "block";
+        } else {
+          forms[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+
+<body>
+  <label for="formSelector">Section Area:</label>
+  <select id="formSelector" onchange="showForm()">
+      <option value="">Select section area</option>
+      <option value="myForm1">Kitchen & Island</option>
+      <option value="myForm2">Shop Drop</option>
+      <option value="myForm3">Small-Scale Project</option>
+    </select><br>
+
+</body>
+
+  <form id="myForm">
+      <b><label for="dateInput">Estimate Date:</label></b>
+      <input type="date" id="dateInput" name="dateInput">
+      <script>
+        var dateInput = document.getElementById("dateInput");
+        dateInput.addEventListener("change", function() {
+          var selectedDate = dateInput.value;
+          document.getElementById("selectedDate").textContent = selectedDate;
+        });
+      </script>
+      <br>
+      <b><label for="name">Created For:</label>
+      <input type="text" class="common-input" id="name" name="name" placeholder="Enter client name" required><br>
+      <label for="text">Email:</label>
+      <input type="email" class="common-input" id="email" name="email" placeholder="Enter email address"><br>
+      <label for="text">Contact:</label></b>
+      <input type="tel" class="common-input" name="mobile" placeholder="Enter contact number"><br>
+      <br>
+      <br>
+      <label for="text">Dear</label>
+      <input type="text" placeholder="first name" required>
+         <br>
+         <label for="note1"></label>
+           <textarea name="message1" placeholder="..." rows="2" cols="75"></textarea><br>
+           Please review the following estimate based on the details and photos shared.
+           If you would like to make an appointment to review samples and go over your project personally, please let me know. <br>
+           I look forward to answering any questions or concerns.<br><br>
+      <b>Grand Total: $<span id="grandTotal">0.00</span></b>
+
+
+      <div class="form" id="myForm1" style="display:none">
+        <body>
+
+          
+          <h5>Kitchen</h5><table style="table-layout: fixed; width: 50%;" id="myTable">
+            <thead>
+              <tr>
+                <th style="width: 5px;">Qty</th>
+                <th style="width: 25px;">Product</th>
+                <th style="width: 10px;">Unit Price</th>
+                <th style="width: 10px;">Total Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="number" class="quantity" value="1" onchange="updateTotal()"></td>
+                <td>door/s</td>
+                <td><input type="number" class="price" value="0" onchange="updateTotal()"></td>
+                <td><span class="totalPrice">$0.00</span></td>
+              </tr>
+                
+                      <tr>
+                        <td><input type="number" class="quantity" value="1" onchange="updateTotal()"></td>
+                        <td>drawer/s</td>
+                        <td><input type="number" class="price" value="0" onchange="updateTotal()"></td>
+                        <td><span class="totalPrice">$0.00</span></td>
+                      </tr>
+                
+                      <tr>
+                        <td><input type="number" class="quantity" value="1" onchange="updateTotal()"></td>
+                        <td>base cabinet/s</td>
+                        <td><input type="number" class="price" value="0" onchange="updateTotal()"></td>
+                        <td><span class="totalPrice">$0.00</span></td>
+                      </tr>
+                
+                      <tr>
+                        <td><input type="number" class="quantity" value="1" onchange="updateTotal()" hidden></td>
+                        <td><input type="text" class="Product" placeholder="remove/install"></td>
+                        <td><input type="number" class="price" value="0" onchange="updateTotal()"></td>
+                        <td><span class="totalPrice">$0.00</span></td>
+                      </tr>
+        
+                      <tr>
+                        <td><input type="number" class="quantity" value="1" onchange="updateTotal()" hidden></td>
+                        <td><input type="text" class="Product" placeholder="supplies estimated"></td>
+                        <td><input type="number" class="price" value="0" onchange="updateTotal()"></td>
+                        <td><span class="totalPrice">$0.00</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                
+                <h5>Island</h5>
+                <table style="table-layout: fixed; width: 50%;" id="myTable">
+                  <thead>
+                    <tr>
+                      <th style="width: 5px;">Qty</th>
+                      <th style="width: 25px;">Product</th>
+                      <th style="width: 10px;">Unit Price</th>
+                      <th style="width: 10px;">Total Price</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><input type="number" class="quantity" value="1" onchange="updateTotal()"></td>
+                      <td><input type="text" class="Product" placeholder="product"></td>
+                      <td><input type="number" class="price" value="0" onchange="updateTotal()"></td>
+                      <td><span class="totalPrice">$0.00</span></td>
+                    </tr>
+
+                    <tr>
+                      <td><input type="number" class="quantity" value="1" onchange="updateTotal()"></td>
+                      <td><input type="text" class="Product" placeholder="product"></td>
+                      <td><input type="number" class="price" value="0" onchange="updateTotal()"></td>
+                      <td><span class="totalPrice">$0.00</span></td>
+                    </tr>
+
+                  </tbody>
+                </table>
+  
+
+              <script>
+                function updateTotal() {
+                  var productRows = document.querySelectorAll('tbody tr');
+                  var grandTotal = 0;
+                  productRows.forEach(function(row) {
+                    var price = parseFloat(row.querySelector('.price').value);
+                    var quantity = parseInt(row.querySelector('.quantity').value) || 1;
+                    var total = price * quantity;
+                    row.querySelector('.totalPrice').textContent = total.toFixed(2);
+                    grandTotal += total;
+                  });
+                  document.getElementById('grandTotal').textContent = grandTotal.toFixed(2);
+                }
+              </script>
+
+<br>
+<i>If in a unique and different color than wall cabinets<br>
+No additional cost if all cabinetry is painted the same color.</i><br>
+<br><br><br>
+      <label for="note"></label>
+      <textarea id="note" name="message" placeholder="..." rows="2" cols="75"></textarea><br>
+    *Removal and Installation can be a DIY, with a cost savings of $480.<br><br>
+    Please note, we spray with the highest performing, professional grade industrial finishes that
+    surpass Kitchen Cabinet Manufacturers Association standards and testing, including
+    Envirolak and Milesi Wood Coatings. Existing cabinetry, relative to: type of wood, unique finish,
+    age, wear, cleaning methods, etc. will be analysed for best method. 
+    <br><br>
+   
+    We share a PDF with labelling instructions as needed.<br>
+    All details, including method and planning are listed on our website:<br>
+    <a href="https://www.cycabinetpainters.com/">cycabinetpainters.com</a><br><br>
+    <i>~references available on request~</i>
+    <br>  <br>  <br>  <br> 
+
+<i>Kind regards,</i><br>
+<b>Marie Yvon</b><br><br>
+
+413-977-1121 call/text<br>
+mcrane.yvon@gmail.com<br>
+crane.yvon@gmail.com
+
+<br>  <br>  <br>
+
+<button class="hide-on-print">Submit</button>
+  
+<!-- Print Button -->
+<button type="button" class="hide-on-print" onclick="window.print()">Print</button>
+
+
+
+    <div id="response"></div>
+  
+    <script>
+      // Submit the form data to the server-side script
+      document.getElementById("myForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        var formData = new FormData(event.target);
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "https://script.google.com/macros/s/AKfycbzPHTnj_tK3WKrP1ZjutqAoQNuh-Z8Des5U-NxMw0A5EBNKii1Scn0e13KeRJViMd0NNg/exec", true); // Replace with your Google Apps Script URL
+        xhr.onload = function() {
+          var responseDiv = document.getElementById("response");
+          responseDiv.textContent = xhr.responseText;
+          event.target.reset();
+        };
+        xhr.send(formData);
+      });
+  
+      // Function to download form data
+      function downloadFormData() {
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var message = document.getElementById("note").value;
+        var data = "Name: " + name + "\nEmail: " + email + "\nMessage: " + message;
+        var blob = new Blob([document], { type: "document/plain" });
+        var url = URL.createObjectURL(blob);
+        var link = document.getElementById("downloadLink");
+        link.href = url;
+      }
+
+    </script>
+  </div>
+</body>
+
+<div class="form" id="myForm2" style="display:none">
+
+    <body>
+
+
+          <h5>Shop Drop</h5>
+          <table style="table-layout: fixed; width: 50%;" id="myTable">
+            <thead>
+              <tr>
+                <th style="width: 5px;">Qty</th>
+                <th style="width: 25px;">Product</th>
+                <th style="width: 10px;">Unit Price</th>
+                <th style="width: 10px;">Total Price</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr>
+                <td><input type="number" class="quantity" value="1" onchange="updateTotal()"></td>
+                <td><input type="text" class="Product" placeholder="product 1"></td>
+                <td><input type="number" class="price" value="0" onchange="updateTotal()"></td>
+                <td><span class="totalPrice">$0.00</span></td>
+              </tr>
+
+              <tr>
+                <td><input type="number" class="quantity" value="1" onchange="updateTotal()"></td>
+                <td><input type="text" class="Product" placeholder="product 2"></td>
+                <td><input type="number" class="price" value="0" onchange="updateTotal()"></td>
+                <td><span class="totalPrice">$0.00</span></td>
+              </tr>
+
+              <tr>
+                <td><input type="number" class="quantity" value="1" onchange="updateTotal()"></td>
+                <td><input type="text" class="Product" placeholder="product 3"></td>
+                <td><input type="number" class="price" value="0" onchange="updateTotal()"></td>
+                <td><span class="totalPrice">$0.00</span></td>
+              </tr>
+
+              <tr>
+                <td><input type="number" class="quantity" value="1" onchange="updateTotal()" hidden></td>
+                <td>supplies</td>
+                <td><input type="number" class="price" value="0" onchange="updateTotal()"></td>
+                <td><span class="totalPrice">$0.00</span></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <script>
+            function updateTotal() {
+              var productRows = document.querySelectorAll('tbody tr');
+              var grandTotal = 0;
+              productRows.forEach(function(row) {
+                var price = parseFloat(row.querySelector('.price').value);
+                var quantity = parseInt(row.querySelector('.quantity').value) || 1;
+                var total = price * quantity;
+                row.querySelector('.totalPrice').textContent = total.toFixed(2);
+                grandTotal += total;
+              });
+              document.getElementById('grandTotal').textContent = grandTotal.toFixed(2);
+            }
+          </script>
+
+<br>
+  <label for="note"></label>
+  <textarea id="note" name="message" placeholder="..." rows="2" cols="75"></textarea><br>
+
+    Please note, we spray with the highest performing, professional grade industrial finishes that
+    surpass Kitchen Cabinet Manufacturers Association standards and testing, including
+    Envirolak and Milesi Wood Coatings.<br><br>
+
+    *Shop Drop Cabinet Refinishing: Following approval of estimate and scheduling, doors and
+    doors are delivered to our shop on Coleman Ave in Westfield, MA. All DIY instructions
+    and materials for labeling and painting the base-in home cabinet are provided.<br><br>
+    All details, including method and planning are listed on our website:<br>
+    <a href="https://www.cycabinetpainters.com/">cycabinetpainters.com</a><br><br>
+    <i>~references available on request~</i>
+    <br>  <br>  <br>  <br> 
+
+<i>Kind regards,</i><br>
+<b>Marie Yvon</b><br><br>
+
+413-977-1121 call/text<br>
+mcrane.yvon@gmail.com
+paintedcrane.art
+
+<br>  <br>  <br>
+
+<button class="hide-on-print">Submit</button>
+
+<!-- Print Button -->
+<button type="button" class="hide-on-print" onclick="window.print()">Print</button>
+
+
+
+<div id="response"></div>
+
+<script>
+  // Submit the form data to the server-side script
+  document.getElementById("myForm2").addEventListener("submit", function(event) {
+    event.preventDefault();
+    var formData = new FormData(event.target);
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "https://script.google.com/macros/s/AKfycbzPHTnj_tK3WKrP1ZjutqAoQNuh-Z8Des5U-NxMw0A5EBNKii1Scn0e13KeRJViMd0NNg/exec", true); // Replace with your Google Apps Script URL
+    xhr.onload = function() {
+      var responseDiv = document.getElementById("response");
+      responseDiv.textContent = xhr.responseText;
+      event.target.reset();
+    };
+    xhr.send(formData);
+  });
+
+  // Function to download form data
+  function downloadFormData() {
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var message = document.getElementById("note").value;
+    var data = "Name: " + name + "\nEmail: " + email + "\nMessage: " + message;
+    var blob = new Blob([document], { type: "document/plain" });
+    var url = URL.createObjectURL(blob);
+    var link = document.getElementById("downloadLink");
+    link.href = url;
+  }
+
+</script>
+</div>
+</body>
+
+<div class="form" id="myForm3" style="display:none">
+  <body>
+
+          <h5>Small-Scale Project</h5>
+          <table style="table-layout: fixed; width: 50%;" id="myTable">
+            <thead>
+              <tr>
+                <th style="width: 5px;">Qty</th>
+                <th style="width: 25px;">Product</th>
+                <th style="width: 10px;">Unit Price</th>
+                <th style="width: 10px;">Total Price</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr>
+                <td><input type="number" class="quantity" value="1" onchange="updateTotal()"></td>
+                <td><input type="text" class="Product" placeholder="product"></td>
+                <td><input type="number" class="price" value="0" onchange="updateTotal()"></td>
+                <td><span class="totalPrice">$0.00</span></td>
+              </tr>
+
+              <tr>
+                <td><input type="number" class="quantity" value="1" onchange="updateTotal()"></td>
+                <td><input type="text" class="Product" placeholder="product"></td>
+                <td><input type="number" class="price" value="0" onchange="updateTotal()"></td>
+                <td><span class="totalPrice">$0.00</span></td>
+              </tr>
+
+              <tr>
+                <td><input type="number" class="quantity" value="1" onchange="updateTotal()"></td>
+                <td><input type="text" class="Product" placeholder="product"></td>
+                <td><input type="number" class="price" value="0" onchange="updateTotal()"></td>
+                <td><span class="totalPrice">$0.00</span></td>
+              </tr>
+
+              <tr>
+                <td><input type="number" class="quantity" value="1" onchange="updateTotal()" hidden></td>
+                <td><input type="text" class="Product" placeholder="remove/install"></td>
+                <td><input type="number" class="price" value="0" onchange="updateTotal()"></td>
+                <td><span class="totalPrice">$0.00</span></td>
+              </tr>
+
+              <tr>
+                <td><input type="number" class="quantity" value="1" onchange="updateTotal()" hidden></td>
+                <td><input type="text" class="Product" placeholder="supplies"></td>
+                <td><input type="number" class="price" value="0" onchange="updateTotal()"></td>
+                <td><span class="totalPrice">$0.00</span></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <script>
+            function updateTotal() {
+              var productRows = document.querySelectorAll('tbody tr');
+              var grandTotal = 0;
+              productRows.forEach(function(row) {
+                var price = parseFloat(row.querySelector('.price').value);
+                var quantity = parseInt(row.querySelector('.quantity').value) || 1;
+                var total = price * quantity;
+                row.querySelector('.totalPrice').textContent = total.toFixed(2);
+                grandTotal += total;
+              });
+              document.getElementById('grandTotal').textContent = grandTotal.toFixed(2);
+            }
+          </script>
+
+<br>
+  <label for="note"></label>
+  <textarea id="note" name="message" placeholder="..." rows="2" cols="75"></textarea><br>
+  
+  All details, including method and planning are listed on our website:<br>
+  <a href="https://www.cycabinetpainters.com/">cycabinetpainters.com</a><br><br>
+
+
+Please note, we spray with the highest performing, professional grade industrial finishes that
+surpass Kitchen Cabinet Manufacturers Association standards and testing, including
+Envirolak and Milesi Wood Coatings.<br><br>
+
+Existing cabinetry, relative to: type of wood, unique finish, age, wear, cleaning methods, etc. will be analysed for best method. 
+<br><br>
+<i>~references available on request~</i>
+<br>  <br>  <br>  <br> 
+
+<i>Kind regards,</i><br>
+<b>Marie Yvon</b><br><br>
+
+413-977-1121 call/text<br>
+mcrane.yvon@gmail.com
+paintedcrane.art
+
+<br>  <br>  <br>
+
+<button class="hide-on-print">Submit</button>
+
+<!-- Print Button -->
+<button type="button" class="hide-on-print" onclick="window.print()">Print</button>
+
+
+
+<div id="response"></div>
+
+<script>
+  // Submit the form data to the server-side script
+  document.getElementById("myForm2").addEventListener("submit", function(event) {
+    event.preventDefault();
+    var formData = new FormData(event.target);
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "https://script.google.com/macros/s/AKfycbzPHTnj_tK3WKrP1ZjutqAoQNuh-Z8Des5U-NxMw0A5EBNKii1Scn0e13KeRJViMd0NNg/exec", true); // Replace with your Google Apps Script URL
+    xhr.onload = function() {
+      var responseDiv = document.getElementById("response");
+      responseDiv.textContent = xhr.responseText;
+      event.target.reset();
+    };
+    xhr.send(formData);
+  });
+
+  // Function to download form data
+  function downloadFormData() {
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var message = document.getElementById("note").value;
+    var data = "Name: " + name + "\nEmail: " + email + "\nMessage: " + message;
+    var blob = new Blob([document], { type: "document/plain" });
+    var url = URL.createObjectURL(blob);
+    var link = document.getElementById("downloadLink");
+    link.href = url;
+  }
+
+</script>
+</div>
+</body>
+</html>
